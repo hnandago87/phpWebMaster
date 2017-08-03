@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -7,9 +8,6 @@
         <script src="../public/js/scripts.js"></script>
     </head>
     <body>
-        <?php 
-            //echo basename($_SERVER["REQUEST_URI"]);
-        ?>
         <nav class="navigation-bar">
             <div class="nav-size nav">
                 <a class="nav-links" href="index.php">
@@ -40,10 +38,18 @@
                 </a>
             </div>
             <div class="vertical-line"></div>
+            <?php if(isset($_SESSION['user_name'])) { ?>
+            <div class="nav nav-size <?php if(basename($_SERVER["REQUEST_URI"])==="logout.php"){echo active;} ?> ">
+                <a class="nav-links" href="logout.php">
+                    <span>Logout</span>
+                </a>
+            </div>
+            <?php } else { ?>
             <div class="nav nav-size <?php if(basename($_SERVER["REQUEST_URI"])==="users.php"){echo active;} ?> ">
                 <a class="nav-links" href="users.php">
                     <span>Login</span>
                 </a>
             </div>
+            <?php } ?>
         </nav>
         <br/>

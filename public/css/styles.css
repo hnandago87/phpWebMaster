@@ -96,13 +96,20 @@
     }
     .container{
         min-height: 80%;
-        width: 100%;
+        width: 90%;
         position: relative;
         border: 0.5px solid black;
         border-radius: 5px;
         overflow-y:auto
     }
-    
+    #footer_id{
+        position:absolute;
+       left:0px;
+       bottom:0px;
+        right:0px;
+       padding:1rem;
+       width:100%;
+    }
     /* Data Stat page*/
     .display-30{
         float:left;

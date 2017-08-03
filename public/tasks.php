@@ -1,4 +1,4 @@
-<?php require_once("../includes/db_connections_open.php"); ?>
+<?php require_once("../includes/db_connections/db_connections_open.php"); ?>
 <?php require_once("../includes/functions.php"); ?>
 <?php include("../includes/layouts/header.php") ?>
 <?php if(isset($_POST["taskName"])){

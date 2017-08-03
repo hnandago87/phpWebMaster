@@ -1,6 +1,6 @@
 <?php
     try {
-        require_once("admin_db_connect.php");
+        require_once("../db_connections/admin_db_connect.php");
     } catch (PDOException $e) {
         die("Try again later");
     }
@@ -38,14 +38,14 @@
         }
         return $db->lastInsertId(); 
     }
-    //function to store hash 
-    function storeHash($user_name, $hashed_salt){
-        $store_hash = "INSERT INTO password_hash(userName,hash) VALUES(:user, :hash_salt)";
-        $insert_query = $db->prepare($store_hash);
-        $insert_query->bindParam(':user', $user_name);
-        $insert_query->bindParam(':hash_salt', $hashed_salt);
-        return $insert_query;
-    }
+//    //function to store hash 
+//    function storeHash($user_name, $hashed_salt){
+//        $store_hash = "INSERT INTO password_hash(userName,hash) VALUES(:user, :hash_salt)";
+//        $insert_query = $db->prepare($store_hash);
+//        $insert_query->bindParam(':user', $user_name);
+//        $insert_query->bindParam(':hash_salt', $hashed_salt);
+//        return $insert_query;
+//    }
     
     
 

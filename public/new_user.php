@@ -1,5 +1,5 @@
 <?php include("../includes/layouts/header.php"); ?>
-<?php require("../includes/user_authentication.php"); ?>
+<?php require("../includes/validations/user_authentication.php"); ?>
 <?php if(isset($_POST['submit'])){
     $name_error = validName($_POST['name']);
     $email_error =  validateEmail($_POST['email']); 

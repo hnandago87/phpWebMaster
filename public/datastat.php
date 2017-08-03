@@ -1,4 +1,4 @@
-<?php require_once("../includes/db_connections_open.php"); ?>
+<?php require_once("../includes/db_connections/db_connections_open.php"); ?>
 <?php require_once("../includes/functions.php"); ?>
 <?php include("../includes/layouts/header.php") ?>
 <?php 
@@ -13,11 +13,6 @@
           $valChange=true;
        }
       if(isset($_POST)){
-//          $posts = array();
-//          $posts[0] = (int)$_POST["edit_id"];
-//          $posts[1] = $_POST["edit_firstname"];
-//          $posts[2] = $_POST["edit_lastname"];
-//          $posts[3] = $_POST["edit_email"];
          $x = getDataForSkillUpdate($_POST);
       }
 ?>

@@ -1,11 +1,20 @@
 <?php session_start(); ?>
 <?php include("../includes/layouts/header.php") ?>
-<?php require("../includes/user_authentication.php") ?>
+<?php require("../includes/validations/user_authentication.php") ?>
+<?php require("../includes/logging_user_in/login_session.php") ?>
 <?php 
     if(isset($_POST['login'])){
         $email_error = validateEmail($_POST['email']);
         $password_error = validatePassword($_POST['password']);
-        var_dump(getLoginDetails($_POST, $email_error,$password_error));
+        $authentication = getSessionID($_POST['email'], $_POST['password']);
+        if(isset($authentication) && $authentication){
+//            setcookie("user_name", $_POST['email'], time()+3600);
+//            header('location:http://localhost/~Harikrishna/phpwebmaster/public/index.php');
+            $_SESSION['user_name'] = $_POST['email'];
+            var_dump($_SESSION);
+            header('location:http://localhost/~Harikrishna/phpwebmaster/public/index.php');
+        }
+        
     }
 ?>
 <div class="login_body">
@@ -23,9 +32,7 @@
 
             <input type="password" name="password" placeholder="password" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="password" /><br>
 
-            <input type="submit" class="btn1" name="login" placeholder="Sign In"> <!-- End Btn -->
-
-<!--            <a href="" id="btn2"> Sign Up  End Btn2 </a>    -->
+            <input type="submit" class="btn1" name="login" placeholder="Sign In"> 
             
              <p>Forgot your password? <u style="color:#f1c40f;">Click Here!</u></p>
 

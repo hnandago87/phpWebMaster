@@ -1,4 +1,5 @@
 <?php
+require("db_connections/db_connections_open.php");
 function confirm_query($result){
 	if (!$result){
 		die("DB failed");
